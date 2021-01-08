@@ -1,0 +1,53 @@
+{
+	"name": "gesture",
+	"plugin-id": "Sprite",
+	"sid": 111029922833842,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 863064800924166
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine2",
+			"sid": 977377053355090
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 334721601046105
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 162,
+						"height": 144,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 586498,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 795423945669479,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

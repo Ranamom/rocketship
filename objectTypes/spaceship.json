@@ -1,0 +1,84 @@
+{
+	"name": "Spaceship",
+	"plugin-id": "Sprite",
+	"sid": 619326172214052,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "clickable",
+			"type": "boolean",
+			"desc": "",
+			"sid": 415700644603879
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 999990130605123
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 194254669019596
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine2",
+			"sid": 791897022899357
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine3",
+			"sid": 914323512041051
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 286,
+						"height": 360,
+						"originX": 0.493006993006993,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 368472,
+						"collisionPoly": {
+							"points": [
+								1,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 0.4965034965034965,
+								"y": 0.7305555555555555
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 300830660636559,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

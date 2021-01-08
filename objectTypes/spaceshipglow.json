@@ -1,0 +1,73 @@
+{
+	"name": "SpaceshipGlow",
+	"plugin-id": "Sprite",
+	"sid": 971981599425049,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 653893799113495
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 126597073485972
+		},
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 891744704340360
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 512,
+						"height": 512,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 103098,
+						"collisionPoly": {
+							"points": [
+								0.212890625,
+								0.212890625,
+								0.5,
+								0.193359375,
+								0.78515625,
+								0.212890625,
+								0.8046875,
+								0.5,
+								0.78515625,
+								0.78515625,
+								0.5,
+								0.8046875,
+								0.212890625,
+								0.78515625,
+								0.193359375,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 841132818456610,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

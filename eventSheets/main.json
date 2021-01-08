@@ -1,0 +1,611 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "targetScale",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 416405580816218
+		},
+		{
+			"eventType": "variable",
+			"name": "Normal",
+			"type": "number",
+			"initialValue": "0.8",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 251989531837075
+		},
+		{
+			"eventType": "variable",
+			"name": "ZoomOut",
+			"type": "number",
+			"initialValue": "0.65",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 900677398043095
+		},
+		{
+			"eventType": "variable",
+			"name": "scaleFactor",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 660787060102576
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 446777847487691
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 684165420972537,
+					"parameters": {
+						"x": "lerp(Self.X,CameraCenter.X,0.03)",
+						"y": "lerp(Self.Y,CameraCenter.Y,0.03)"
+					}
+				},
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 327289869442817,
+					"parameters": {
+						"scale": "lerp(LayoutScale,targetScale,scaleFactor*dt)"
+					}
+				}
+			],
+			"sid": 616055011404375
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 546625163233785
+				}
+			],
+			"actions": [
+				{
+					"id": "pin-to-object-imagepoint",
+					"objectClass": "Smoke",
+					"sid": 816433222943857,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Spaceship",
+						"image-point": "1",
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "ShadowLight",
+					"sid": 713486007081615,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Overlay",
+					"sid": 178984733059161,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 714846592119101,
+					"parameters": {
+						"variable": "targetScale",
+						"value": "ZoomOut"
+					}
+				},
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 479151272221162,
+					"parameters": {
+						"scale": "targetScale"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 189455230096000,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Overlay",
+					"sid": 112199308114444,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "40",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 387682042425776,
+					"parameters": {
+						"variable": "targetScale",
+						"value": "Normal"
+					}
+				},
+				{
+					"id": "play-timeline",
+					"objectClass": "Timeline",
+					"sid": 707755988280070,
+					"parameters": {
+						"timeline": "SpaceshipPath",
+						"tags": "\"\""
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "ShadowLight",
+					"sid": 232247217634199,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "20",
+						"time": "1",
+						"ease": "easeoutexpo",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 996048821264763,
+					"parameters": {
+						"seconds": "6"
+					}
+				}
+			],
+			"sid": 677307201261156,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Spaceship",
+							"sid": 681461244778642,
+							"parameters": {
+								"instance-variable": "clickable"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 721076834735886,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "1",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "gesture",
+							"sid": 692150853841738,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "1",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 971673569894011,
+							"parameters": {
+								"seconds": "6"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "gesture",
+							"sid": 732892688690352,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "1",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Text",
+							"sid": 647657420544882,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "1",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 583429760589359
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 140227048832459,
+					"parameters": {
+						"object": "Spaceship"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Spaceship",
+					"sid": 523807401907942,
+					"parameters": {
+						"instance-variable": "clickable"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Spaceship",
+					"sid": 879215849417161,
+					"parameters": {
+						"instance-variable": "clickable",
+						"value": "false"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "gesture",
+					"sid": 186539718823160,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "1",
+						"ease": "easeoutsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text",
+					"sid": 414184399436667,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "1",
+						"ease": "easeoutsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Spaceship",
+					"sid": 925969449571897,
+					"parameters": {
+						"object": "Particles",
+						"layer": "0",
+						"image-point": "0"
+					}
+				},
+				{
+					"id": "pause-all-timelines",
+					"objectClass": "Timeline",
+					"sid": 870208633944813
+				},
+				{
+					"id": "set-position-to-another-object",
+					"objectClass": "CameraCenter",
+					"sid": 184003002077635,
+					"parameters": {
+						"object": "Spaceship",
+						"image-point-optional": "0"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "CameraCenter",
+					"sid": 783467828020429,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Spaceship",
+						"x": true,
+						"y": true,
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Spaceship",
+					"sid": 870201391993383,
+					"disabled": true,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "427",
+						"end-y": "240",
+						"time": "1",
+						"ease": "easeoutsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Spaceship",
+					"sid": 269854196847253,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetAngle",
+						"end-value": "0",
+						"time": "1",
+						"ease": "easeoutsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 588188039102204,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"type": "script",
+					"script": "tapRocket();"
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 440935036900823,
+					"parameters": {
+						"audio-file": "Success",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 983191064627421,
+					"parameters": {
+						"variable": "targetScale",
+						"value": "1"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Spaceship",
+					"sid": 519084615772039,
+					"parameters": {
+						"object": "SpaceshipGlow",
+						"layer": "1",
+						"image-point": "0"
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "Spaceship",
+					"sid": 731058340593597,
+					"parameters": {
+						"where": "behind",
+						"object": "Spaceship"
+					}
+				},
+				{
+					"id": "set-position-to-another-object",
+					"objectClass": "Glow",
+					"sid": 288405069799977,
+					"parameters": {
+						"object": "Spaceship",
+						"image-point-optional": "0"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Glow",
+					"sid": 930350981111980,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "65",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "Spaceship",
+					"sid": 402781277384229,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "active"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "Spaceship",
+					"sid": 146337919688153,
+					"behaviorType": "Sine2",
+					"parameters": {
+						"state": "active"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "Spaceship",
+					"sid": 906712014709919,
+					"behaviorType": "Sine3",
+					"parameters": {
+						"state": "active"
+					}
+				}
+			],
+			"sid": 382281040870492
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "SpaceshipGlow",
+					"sid": 434139768278347
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-two-properties",
+					"objectClass": "SpaceshipGlow",
+					"sid": 799186764784466,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "size",
+						"end-x": "650",
+						"end-y": "650",
+						"time": "5",
+						"ease": "easeoutsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "SpaceshipGlow",
+					"sid": 179808855523544,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Spaceship",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "SpaceshipGlow",
+					"sid": 548448147205403,
+					"parameters": {
+						"where": "behind",
+						"object": "Spaceship"
+					}
+				}
+			],
+			"sid": 616861121725488
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 404324412133683
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 952312292547108,
+					"parameters": {
+						"audio-file": "Click",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 957884443270452
+		}
+	],
+	"sid": 653096748861663
+}

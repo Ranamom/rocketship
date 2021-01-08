@@ -1,0 +1,20 @@
+{
+	"name": "Particles",
+	"plugin-id": "Particles",
+	"sid": 238571374963085,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 65,
+		"height": 65,
+		"originX": 0.47692307692307695,
+		"originY": 0.4307692307692308,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 3665579,
+		"useCollisionPoly": true
+	}
+}
